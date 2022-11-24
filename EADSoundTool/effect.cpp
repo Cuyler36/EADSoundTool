@@ -80,9 +80,9 @@ extern f32 Nas_EnvProcess(envp* envp) {
 		/* Fall-through to case 4 */
 	case ADSRState::Attack:
 		envp->volume += envp->step_value;
-		s16 sustain_time = envp->now_key - 1;
-		envp->now_key = sustain_time;
-		if (sustain_time < 1) {
+		s16 attack_time = envp->now_key - 1;
+		envp->now_key = attack_time;
+		if (attack_time < 1) {
 			envp->env_state.state = ADSRState::ProcessState; // Done transitioning
 		}
 		break;
